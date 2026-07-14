@@ -1,0 +1,32 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #5a376f, #41225d);
+}
+
+.logo {
+  color: linear-gradient(180deg, #5a376f, #41225d);
+  font-size: 28px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #2e0747;
+}
