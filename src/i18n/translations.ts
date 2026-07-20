@@ -167,7 +167,7 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       role: "خوێندکاری قۆناغی سێیەمی ئەندازیاری پرۆگرامسازی",
-      welcome: "بەخێربێیت بۆ پۆرتفۆلیۆی دانیە عبداللە",
+      welcome: "بەخێربێیت بۆ پۆرتفۆلیۆی دانیە ",
       downloadCV: "داگرتنی CV",
     },
     about: {
