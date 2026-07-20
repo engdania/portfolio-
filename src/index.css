@@ -1,7 +1,16 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Space+Grotesk:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap");*/
+/*@import url(https://www.kurdfonts.com/dl/tmp/7546847/UniMahanRebin.ttf);*/
+/*@import url(https://www.kurdfonts.com/dl/tmp/5194458/Peshang_Des_1_bold_.ttf);*/
+/*@import url(https://www.kurdfonts.com/dl/tmp/2788037/Speda-Bold.ttf);*/
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -14,4 +23,50 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(180deg, #210730, #41225d);
   color: white;
+}
+
+section {
+  position: relative;
+  scroll-margin-top: 90px;
+}
+
+section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -25px;
+  transform: translateX(-50%);
+
+  width: 180px;
+  height: 2px;
+
+  background: linear-gradient(to right, transparent, #cc9ae7, transparent);
+
+  opacity: 0.8;
+}
+
+/* ===========================
+   RTL support (Kurdish - Sorani)
+=========================== */
+/*[dir="rtl"] body {
+  font-family: "Noto Sans Arabic", Arial, sans-serif;
+}
+
+[dir="rtl"] .hero h1,
+[dir="rtl"] .hero h2,
+[dir="rtl"] .logo {
+  font-family: "Noto Sans Arabic", Arial, sans-serif;
+}*/
+/* Apply Vazirmatn ONLY when Kurdish (RTL) is selected */
+[dir="rtl"] body,
+[dir="rtl"] .hero h1,
+[dir="rtl"] .hero h2,
+[dir="rtl"] .logo {
+  font-family: "Vazirmatn", sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

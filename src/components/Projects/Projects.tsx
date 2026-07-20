@@ -1,26 +1,31 @@
 import "./Projects.css";
 import dentalImage from "../../images/dental.png";
+import { useLanguage } from "../../i18n/LanguageContext";
+import { useInView } from "../../hooks/useInView";
 
 function Projects() {
+  const { t } = useLanguage();
+  const { ref, inView } = useInView<HTMLDivElement>();
+
   return (
     <section id="projects" className="projects">
-      <h2>My Projects</h2>
+      <h2>{t.projects.title}</h2>
 
-      <div className="project-card">
-        <img src={dentalImage} alt="Dental Clinic" />
+      <div ref={ref} className={`project-card ${inView ? "in-view" : ""}`}>
+        <div className="project-image">
+          <img src={dentalImage} alt="Dental Clinic" />
+        </div>
 
         <div className="project-info">
-          <h3>Dental Clinic Management System</h3>
+          <h3>{t.projects.projectTitle}</h3>
 
-          <p>
-            A full-stack dental clinic management system that allows
-            administrators to manage patients, dentists, appointments, and
-            treatments.
+          <p>{t.projects.desc}</p>
+
+          <h4>{t.projects.tech}</h4>
+
+          <p className="tech-list">
+            React • TypeScript • Node.js • Express • PostgreSQL
           </p>
-
-          <h4>Technologies</h4>
-
-          <p>React • TypeScript • Node.js • Express • PostgreSQL</p>
 
           <div className="project-buttons">
             <a
@@ -28,7 +33,14 @@ function Projects() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+              {t.projects.github}
+            </a>
+            <a
+              href="https://github.com/engdania/dental-clinic.git"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t.projects.liveDemo}
             </a>
           </div>
         </div>

@@ -1,23 +1,29 @@
 import "./Hero.css";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="hero">
+      <div className="hero-glow glow-1" aria-hidden="true" />
+      <div className="hero-glow glow-2" aria-hidden="true" />
+      <div className="hero-glow glow-3" aria-hidden="true" />
+
       <div className="hero-text">
-        <h1>welcome to Dania's portfolio</h1>
-
-        <h2>Software Engineering Student-UGIII</h2>
-
-        <p>
-          i am a software engineering student with a passion for creating
-          innovative and efficient solutions. I enjoy working on challenging
-          projects that allow me to learn and grow as a developer.
-        </p>
+        <span className="hero-role">{t.hero.role}</span>
+        <h1>{t.hero.welcome}</h1>
 
         <a href="/Dania_Abdullah_CV.pdf" download className="download-btn">
-          Download CV
+          {t.hero.downloadCV}
         </a>
       </div>
+
+      <a href="#about" className="scroll-indicator" aria-label="Scroll down">
+        <span className="scroll-mouse">
+          <span className="scroll-dot" />
+        </span>
+      </a>
     </section>
   );
 }

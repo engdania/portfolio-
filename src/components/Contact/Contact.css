@@ -21,6 +21,14 @@
   justify-content: space-between;
   gap: 50px;
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contact-container.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-info {
@@ -35,6 +43,12 @@
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .icon {
@@ -65,11 +79,19 @@
 .contact-form input,
 .contact-form textarea {
   padding: 15px;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.08);
   color: white;
   font-size: 16px;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #a855f7;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .contact-form input::placeholder,
@@ -90,4 +112,99 @@
 
 .contact-form button:hover {
   background: #7c3aed;
+}
+
+.contact-form button.sent {
+  background: #22c55e;
+  cursor: default;
+}
+
+@media (max-width: 992px) {
+  .contact {
+    padding: 80px 6%;
+  }
+
+  .contact h2 {
+    font-size: 2.5rem;
+  }
+
+  .contact-container {
+    gap: 30px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 70px 20px;
+  }
+
+  .contact h2 {
+    font-size: 2rem;
+  }
+
+  .contact-subtitle {
+    margin-bottom: 40px;
+    font-size: 15px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+
+  .info-card {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .contact-form textarea {
+    min-height: 150px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .contact h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-subtitle {
+    font-size: 14px;
+  }
+
+  .info-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+
+  .contact-form button {
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-container {
+    transition: none;
+  }
 }

@@ -1,30 +1,29 @@
 import "./About.css";
+import { useLanguage } from "../../i18n/LanguageContext";
+import { useInView } from "../../hooks/useInView";
 
 function About() {
+  const { t } = useLanguage();
+  const { ref, inView } = useInView<HTMLDivElement>();
+
   return (
     <section id="about" className="about">
-      <div className="about-container">
+      <div
+        ref={ref}
+        className={`about-container ${inView ? "in-view" : ""}`}
+      >
         <div className="about-image">
-          <img src="" alt="Dania" />
+          <div className="about-image-frame">
+            <img src="" alt="Dania" />
+          </div>
         </div>
 
         <div className="about-text">
-          <h2>About Me</h2>
+          <h2>{t.about.title}</h2>
 
-          <p>
-            Hello! I'm <strong>Dania Abdullah</strong>, a Software Engineering
-            student at the University of Kurdistan Hewler (UKH).
-          </p>
-
-          <p>
-            I enjoy building modern software solutions using React, TypeScript,
-            Node.js, and PostgreSQL.
-          </p>
-
-          <p>
-            I'm passionate about learning new technologies and creating
-            responsive, user-friendly websites.
-          </p>
+          <p>{t.about.p1}</p>
+          <p>{t.about.p2}</p>
+          <p>{t.about.p3}</p>
         </div>
       </div>
     </section>
