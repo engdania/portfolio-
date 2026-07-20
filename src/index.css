@@ -1,8 +1,5 @@
-/*@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Space+Grotesk:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap");*/
-/*@import url(https://www.kurdfonts.com/dl/tmp/7546847/UniMahanRebin.ttf);*/
-/*@import url(https://www.kurdfonts.com/dl/tmp/5194458/Peshang_Des_1_bold_.ttf);*/
-/*@import url(https://www.kurdfonts.com/dl/tmp/2788037/Speda-Bold.ttf);*/
-@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -19,10 +16,16 @@ body,
   min-height: 100%;
 }
 
+/* 1. Default body font for English (en) and Turkish (tr) */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   background: linear-gradient(180deg, #210730, #41225d);
   color: white;
+}
+
+/* 2. Logo font for English and Turkish */
+.logo {
+  font-family: "Space Grotesk", sans-serif;
 }
 
 section {
@@ -48,16 +51,7 @@ section:not(:last-child)::after {
 /* ===========================
    RTL support (Kurdish - Sorani)
 =========================== */
-/*[dir="rtl"] body {
-  font-family: "Noto Sans Arabic", Arial, sans-serif;
-}
-
-[dir="rtl"] .hero h1,
-[dir="rtl"] .hero h2,
-[dir="rtl"] .logo {
-  font-family: "Noto Sans Arabic", Arial, sans-serif;
-}*/
-/* Apply Vazirmatn ONLY when Kurdish (RTL) is selected */
+/* Apply Vazirmatn ONLY when Kurdish (RTL) is active across all text and logo */
 [dir="rtl"] body,
 [dir="rtl"] .hero h1,
 [dir="rtl"] .hero h2,

@@ -9,7 +9,10 @@
   left: 0;
   z-index: 1000;
   background: linear-gradient(180deg, #5a376f, #41225d);
-  transition: padding 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition:
+    padding 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .navbar.scrolled {
@@ -27,6 +30,18 @@
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+}
+/* Logo font for English & Turkish (Latin Cursive) */
+.logo {
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
+}
+
+/* Calligraphic Cursive Logo font ONLY for Kurdish */
+[dir="rtl"] .logo {
+  font-family: "Aref Ruqaa", serif;
+  font-size: 2rem;
+  line-height: 1.2;
 }
 
 .logo:hover {

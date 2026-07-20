@@ -7,14 +7,14 @@
 }
 
 .about-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 60px;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 900px; /* Centers and formats the text cleanly */
+  margin: 0 auto;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .about-container.in-view {
@@ -22,39 +22,16 @@
   transform: translateY(0);
 }
 
-.about-image-frame {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  border-radius: 20px;
-  padding: 6px;
-  background: linear-gradient(135deg, #cc9ae7, #8b5cf6);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.about-image-frame:hover {
-  transform: translateY(-6px) rotate(-1deg);
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.35);
-}
-
-.about-image img {
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
 .about-text {
-  flex: 1;
+  width: 100%;
+  min-width: 0;
 }
 
 .about-text h2 {
   position: relative;
   display: inline-block;
   font-size: 3rem;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #cc9ae7;
 }
 
@@ -69,10 +46,94 @@
   background: linear-gradient(to right, #cc9ae7, transparent);
 }
 
-.about-text p {
+/* ===========================
+   Paragraphs Container
+=========================== */
+.about-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.about-paragraphs p {
   font-size: 18px;
   line-height: 1.8;
-  margin-bottom: 15px;
+  margin: 0;
+}
+
+/* ===========================
+   Courses Moving Marquee
+=========================== */
+.courses-section {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.courses-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #cc9ae7;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 0.6rem;
+  width: max-content;
+  animation: scrollMarquee 22s linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.course-badge {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(204, 154, 231, 0.25);
+  color: #ffffff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: inline-block;
+  user-select: none;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.course-badge:hover {
+  background-color: rgba(139, 92, 246, 0.2);
+  border-color: #8b5cf6;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ===========================
@@ -84,6 +145,19 @@
   background: linear-gradient(to left, #cc9ae7, transparent);
 }
 
+[dir="rtl"] .marquee-track {
+  animation: scrollMarqueeRTL 22s linear infinite;
+}
+
+@keyframes scrollMarqueeRTL {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
 /* ===========================
    Tablet
 =========================== */
@@ -92,20 +166,11 @@
     padding: 80px 6%;
   }
 
-  .about-container {
-    gap: 40px;
-  }
-
-  .about-image-frame,
-  .about-image img {
-    max-width: 260px;
-  }
-
   .about-text h2 {
     font-size: 2.5rem;
   }
 
-  .about-text p {
+  .about-paragraphs p {
     font-size: 17px;
   }
 }
@@ -119,15 +184,7 @@
   }
 
   .about-container {
-    flex-direction: column;
     text-align: center;
-    gap: 30px;
-  }
-
-  .about-image-frame,
-  .about-image img {
-    max-width: 220px;
-    margin: 0 auto;
   }
 
   .about-text h2 {
@@ -144,7 +201,7 @@
     transform: translateX(50%);
   }
 
-  .about-text p {
+  .about-paragraphs p {
     font-size: 16px;
     line-height: 1.7;
   }
@@ -154,16 +211,11 @@
    Small Phones
 =========================== */
 @media (max-width: 480px) {
-  .about-image-frame,
-  .about-image img {
-    max-width: 180px;
-  }
-
   .about-text h2 {
     font-size: 1.8rem;
   }
 
-  .about-text p {
+  .about-paragraphs p {
     font-size: 15px;
   }
 }
@@ -171,5 +223,9 @@
 @media (prefers-reduced-motion: reduce) {
   .about-container {
     transition: none;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 }
